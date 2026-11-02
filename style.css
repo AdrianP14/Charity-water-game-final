@@ -7,7 +7,7 @@
   --yellow: #ffd447;
   --white: #fff;
   --river-clear: 0;
-  font-family: "Trebuchet MS", Arial, sans-serif;
+  font-family: "Montserrat", "Avenir Next", sans-serif;
   color: var(--navy);
   background: #f1f8f9;
   font-synthesis: none;
@@ -21,16 +21,16 @@ button:focus-visible, a:focus-visible { outline: 3px solid #e5ae00; outline-offs
 
 .app { width: min(100% - 36px, 960px); margin: 0 auto; padding: 18px 0 14px; }
 .site-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; }
-.wordmark { color: var(--navy); font-family: "Trebuchet MS", Arial, sans-serif; font-size: 13px; font-weight: 700; letter-spacing: .15em; text-decoration: none; }
+.wordmark { color: var(--navy); font-family: inherit; font-size: 13px; font-weight: 700; letter-spacing: .15em; text-decoration: none; }
 .header-note, .page-footer { color: #5c7887; font-size: 12px; }
 .game-shell { overflow: hidden; border: 1px solid #d5e7ed; border-radius: 10px; background: white; }
 .game-topline { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 16px 20px 12px; }
 .eyebrow { margin: 0 0 6px; color: #4b8da5; font-size: 10px; font-weight: 800; letter-spacing: .16em; }
-h1 { margin: 0; font-family: "Trebuchet MS", Arial, sans-serif; font-size: clamp(21px, 3vw, 30px); line-height: 1.1; }
+h1 { margin: 0; font-family: inherit; font-size: clamp(21px, 3vw, 30px); line-height: 1.1; }
 .stats { display: flex; align-items: center; gap: clamp(14px, 3vw, 34px); }
 .stat { display: grid; gap: 3px; min-width: 44px; }
 .stat-label, .meter-label { color: #638292; font-size: 9px; font-weight: 800; letter-spacing: .12em; }
-.stat strong { font-family: "Trebuchet MS", Arial, sans-serif; font-size: 20px; line-height: 1; }
+.stat strong { font-family: inherit; font-size: 20px; line-height: 1; }
 .stat strong small { margin-left: 2px; color: #638292; font-family: Arial, sans-serif; font-size: 11px; }
 #hearts { color: #f07868; font-size: 15px; letter-spacing: 1px; white-space: nowrap; }
 .meter-row { display: flex; align-items: center; gap: 12px; padding: 0 26px 16px; }
@@ -66,15 +66,26 @@ h1 { margin: 0; font-family: "Trebuchet MS", Arial, sans-serif; font-size: clamp
 .screen-end { overflow-y: auto; }
 .screen-card { width: min(100%, 410px); padding: 25px 30px; border: 1px solid #d5e7ed; border-radius: 10px; background: white; text-align: center; }
 .card-icon { display: inline-block; margin-bottom: 7px; font-size: 30px; }
-.screen-card h2 { margin: 4px 0 10px; font-family: "Trebuchet MS", Arial, sans-serif; font-size: clamp(23px, 4vw, 32px); line-height: 1.12; }
+.screen-card h2 { margin: 4px 0 10px; font-family: inherit; font-size: clamp(23px, 4vw, 32px); line-height: 1.12; }
 .screen-card > p:not(.eyebrow) { margin: 0 auto 12px; color: #4c6b7a; font-size: 14px; line-height: 1.5; }
 .screen-card .eyebrow { margin-bottom: 5px; }
 .control-hint { color: #446778 !important; font-size: 12px !important; }
+.difficulty-picker { min-width: 0; margin: 0 auto 12px; padding: 0; border: 0; }
+.difficulty-picker legend { margin: 0 auto 7px; color: #446778; font-size: 11px; font-weight: 700; }
+.difficulty-options { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; }
+.difficulty-option { position: relative; cursor: pointer; }
+.difficulty-option input { position: absolute; width: 1px; height: 1px; opacity: 0; }
+.difficulty-copy { display: grid; min-height: 52px; align-content: center; gap: 3px; border: 1px solid #d5e5ea; border-radius: 6px; background: #f7fbfc; color: #426b7b; }
+.difficulty-option input:checked + .difficulty-copy { border-color: #087db5; background: #eaf7fb; color: #075985; box-shadow: inset 0 0 0 1px #087db5; }
+.difficulty-option input:focus-visible + .difficulty-copy { outline: 3px solid #e5ae00; outline-offset: 2px; }
+.difficulty-copy strong { font-size: 11px; }
+.difficulty-copy small { font-size: 9px; }
 kbd { padding: 3px 6px; border: 1px solid #c8dce4; border-radius: 4px; background: #f2f8fa; font: 700 10px Arial, sans-serif; }
 .button { min-height: 46px; border: 0; border-radius: 8px; cursor: pointer; font-weight: 800; }
 .button-primary { min-width: 158px; margin-top: 5px; padding: 0 20px; background: var(--yellow); color: #173e51; transition: background .12s; }
 .button-primary:hover { background: #ffdf68; }
 .button-primary span { margin-left: 8px; }
+.button-secondary { display: block; min-height: 32px; margin: 6px auto 0; padding: 0 10px; background: transparent; color: #426b7b; font-size: 11px; text-decoration: underline; text-underline-offset: 3px; }
 .game-footer { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 54px; padding: 7px 24px; }
 .game-footer p { margin: 0; color: #587686; font-size: 11px; }
 .game-footer p span { margin-left: 10px; margin-right: 2px; font-size: 13px; }
@@ -90,8 +101,9 @@ kbd { padding: 3px 6px; border: 1px solid #c8dce4; border-radius: 4px; backgroun
 .end-card .final-score, .end-card .drops-summary { margin-bottom: 5px !important; font-size: 13px !important; }
 .end-card .final-score strong, .end-card .drops-summary strong { margin-left: 5px; color: var(--navy); font-size: 16px; }
 .end-card .water-message { max-width: 330px; margin-top: 9px !important; font-size: 12px !important; }
-.charity-link { display: inline-block; margin: 1px 0 8px; color: #076d9a; font-size: 12px; font-weight: 800; text-decoration-thickness: 1px; text-underline-offset: 3px; }
-.charity-logo { display: flex; align-items: center; justify-content: center; gap: 7px; margin: 0 auto 8px; color: #202020; font-family: Arial, sans-serif; font-size: 15px; font-weight: 700; letter-spacing: -.04em; }
+.charity-link { display: inline-block; margin: 1px 6px 8px; color: #076d9a; font-size: 12px; font-weight: 800; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+.donation-link { color: #287c49; }
+.charity-logo { display: flex; align-items: center; justify-content: center; gap: 7px; margin: 0 auto 8px; color: #202020; font-family: inherit; font-size: 15px; font-weight: 700; }
 .charity-logo img { width: 28px; height: 28px; border-radius: 4px; }
 .end-card .button-primary { min-height: 42px; }
 .toast { position: absolute; z-index: 4; top: 18%; left: 50%; padding: 8px 13px; border-radius: 30px; background: #fff3a6; color: #574600; font-size: 12px; font-weight: 800; opacity: 0; pointer-events: none; transform: translate(-50%, 5px); transition: opacity .2s, transform .2s; white-space: nowrap; }
@@ -99,7 +111,9 @@ kbd { padding: 3px 6px; border: 1px solid #c8dce4; border-radius: 4px; backgroun
 .celebration { position: absolute; z-index: 6; inset: 0; overflow: hidden; pointer-events: none; }
 .confetti { position: absolute; top: -14px; width: 9px; height: 14px; animation: confetti-fall 2.6s linear forwards; }
 @keyframes confetti-fall { to { transform: translateY(560px) rotate(720deg); opacity: .15; } }
-.page-footer { padding: 12px 2px 0; font-size: 10px; text-align: center; }
+.page-footer { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 12px 2px 0; font-size: 10px; }
+.page-footer nav { display: flex; gap: 12px; }
+.page-footer a { color: #076d9a; font-weight: 700; text-underline-offset: 2px; }
 
 @media (max-width: 600px) {
   .app { width: min(100% - 20px, 480px); padding-top: 12px; }
@@ -119,6 +133,7 @@ kbd { padding: 3px 6px; border: 1px solid #c8dce4; border-radius: 4px; backgroun
   .game-footer { min-height: 55px; padding: 7px 12px; }
   .game-footer p { font-size: 9px; }
   .game-footer p span { margin-left: 5px; }
+  .page-footer { align-items: flex-start; flex-direction: column; }
 }
 
 @media (prefers-reduced-motion: reduce) {

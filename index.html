@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#087db5">
     <title>Clear the Current</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
@@ -23,6 +26,7 @@
           <div class="stats" aria-live="polite">
             <div class="stat"><span class="stat-label">SCORE</span><strong id="score">0</strong></div>
             <div class="stat"><span class="stat-label">TIME</span><strong><span id="time">30</span><small>s</small></strong></div>
+            <div class="stat"><span class="stat-label">GOAL</span><strong id="goal">100</strong></div>
             <div class="stat"><span class="stat-label">LIVES</span><strong id="hearts" aria-label="3 lives">♥ ♥ ♥</strong></div>
           </div>
         </div>
@@ -50,7 +54,24 @@
               <span class="card-icon" aria-hidden="true">〰️</span>
               <p class="eyebrow">DIVE IN</p>
               <h2>Help your fish find a cleaner current.</h2>
-              <p>Swim up for water drops, dodge the trash, and hold on for 30 seconds.</p>
+              <p>Collect water drops and reach your score goal before time runs out.</p>
+              <fieldset class="difficulty-picker">
+                <legend>Choose your current</legend>
+                <div class="difficulty-options">
+                  <label class="difficulty-option">
+                    <input type="radio" name="difficulty" value="easy">
+                    <span class="difficulty-copy"><strong>Easy</strong><small>40 sec · 60 pts</small></span>
+                  </label>
+                  <label class="difficulty-option">
+                    <input type="radio" name="difficulty" value="normal" checked>
+                    <span class="difficulty-copy"><strong>Normal</strong><small>30 sec · 100 pts</small></span>
+                  </label>
+                  <label class="difficulty-option">
+                    <input type="radio" name="difficulty" value="hard">
+                    <span class="difficulty-copy"><strong>Hard</strong><small>24 sec · 120 pts</small></span>
+                  </label>
+                </div>
+              </fieldset>
               <p class="control-hint"><kbd>SPACE</kbd> to swim up <span aria-hidden="true">·</span> tap the river on mobile</p>
               <button class="button button-primary" id="play-button" type="button">Play <span aria-hidden="true">→</span></button>
             </div>
@@ -61,15 +82,17 @@
               <span class="card-icon" id="end-icon" aria-hidden="true">💧</span>
               <p class="eyebrow" id="end-eyebrow">RIVER REPORT</p>
               <h2 id="end-title">Current cleared!</h2>
-              <p class="final-score">Final score <strong id="final-score">0</strong></p>
+              <p class="final-score">Final score <strong id="final-score">0</strong> / <strong id="final-goal">100</strong> goal</p>
               <p class="drops-summary">Water drops collected <strong id="final-drops">0</strong></p>
               <p class="water-message">Safe drinking water is essential, yet many people still lack reliable access to it. Learn more about the work to change that.</p>
               <a class="charity-link" href="https://www.charitywater.org/" target="_blank" rel="noopener noreferrer">Visit charity: water <span aria-hidden="true">↗</span></a>
+              <a class="charity-link donation-link" href="https://www.charitywater.org/donate" target="_blank" rel="noopener noreferrer">Donate for clean water <span aria-hidden="true">↗</span></a>
               <div class="charity-logo" role="img" aria-label="charity: water">
                 <img src="assets/charity-water-mark.png" alt="">
                 <span>charity: water</span>
               </div>
               <button class="button button-primary" id="play-again-button" type="button">Play Again <span aria-hidden="true">↻</span></button>
+              <button class="button button-secondary" id="change-difficulty-button" type="button">Change difficulty</button>
             </div>
           </div>
 
@@ -82,7 +105,13 @@
           <button class="button button-reset" id="reset-button" type="button" hidden>Reset <span aria-hidden="true">↻</span></button>
         </div>
       </section>
-      <footer class="page-footer">A demo version of game. Early in process</footer>
+      <footer class="page-footer">
+        <span>An independent game concept supporting clean water access.</span>
+        <nav aria-label="charity: water links">
+          <a href="https://www.charitywater.org/" target="_blank" rel="noopener noreferrer">charity: water</a>
+          <a href="https://www.charitywater.org/donate" target="_blank" rel="noopener noreferrer">Donate</a>
+        </nav>
+      </footer>
     </main>
     <script src="script.js"></script>
   </body>
